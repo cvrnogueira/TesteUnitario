@@ -28,5 +28,22 @@ public enum Categorias {
 			 return SILVER;
 		 }
 	}
+	public Categorias verificaCategoriaDowngrade(BigDecimal saldo, Categorias categoria){
+		switch(categoria){
+			case PLATINUM: {
+				if(saldo.compareTo(new BigDecimal(200000)) == -1){ //se for menor que 200000 vai ter downgrade
+					return GOLD;
+				 }
+				else return PLATINUM;
+			}
+			case GOLD: {
+				if(saldo.compareTo(new BigDecimal(50000)) == -1){ //se for menor que 200000 vai ter downgrade
+					return SILVER;
+				 }
+				else return GOLD;
+			}
+		}
+		return SILVER;
+	}
 	
 }

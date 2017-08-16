@@ -45,7 +45,7 @@ public class Conta {
 		 }
 			 else{
 				 saldo = saldo.subtract(valor);
-				 categoriaDaConta = categoriaDaConta.verificaCategoria(saldo,categoriaDaConta); //pode regredir de categoria
+				 categoriaDaConta = categoriaDaConta.verificaCategoriaDowngrade(saldo,categoriaDaConta); //pode regredir de categoria
 			 }
 	 }
 }

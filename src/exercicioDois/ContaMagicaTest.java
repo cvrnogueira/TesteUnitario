@@ -118,5 +118,25 @@ public class ContaMagicaTest {
 		BigDecimal teste = new BigDecimal(21025).subtract(c1.getSaldo());
 		assertTrue(teste.compareTo(new BigDecimal(0.001)) == -1); //testa se o teste é menor do que 0,001
 	}
+	//verifica downgrades
+	@Test
+	public void verificaCategoriaSilverContinuandoEmSilver(){
+	}
+	@Test
+	public void verificaCategoriaPlatinumContinuandoEmPlatinum(){
+	}
+	@Test
+	public void verificaCategoriaGoldContinuandoEmGold(){
+	}
+	@Test
+	public void verificaCategoriaPlatinumMudandoParaGold(){
+	}
+	@Test
+	public void verificaCategoriaPlatinumMudandoParaSilver(){ //tem de dar erro
+	}
+	@Test
+	public void verificaCategoriaGoldmMudandoParaSilver(){
+	}
+	//verifica saldos pós downgrades
 
 }
