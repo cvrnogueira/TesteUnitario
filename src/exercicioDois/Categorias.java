@@ -18,14 +18,15 @@ public enum Categorias {
 		}
 	}
 	public Categorias verificaCategoria(BigDecimal saldo, Categorias categoria){
-		 if(saldo.compareTo(new BigDecimal(50000)) == 1){ //se for maior ou igual a 50000
-			 return GOLD;
+		if(saldo.compareTo(new BigDecimal(50000)) == 0 || (((saldo.compareTo(new BigDecimal(50000))) == 1) && ((saldo.compareTo(new BigDecimal(200000)) == -1)))){ //se for maior ou igual a 50000 mas menor que 200000
+			return GOLD;
 		 }
-		 else if(saldo.compareTo(new BigDecimal(200000)) == 1){
+		 else if(saldo.compareTo(new BigDecimal(200000)) == 0 || saldo.compareTo(new BigDecimal(200000)) == 1){
 			 return PLATINUM;
 		 }
 		 else{
 			 return SILVER;
 		 }
 	}
+	
 }

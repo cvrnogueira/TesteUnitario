@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 public class Conta {
 	
 	private String nomeCliente;
-	private int numDaConta;
 	private BigDecimal saldo;
 	private Categorias categoriaDaConta;
 	
@@ -30,21 +29,23 @@ public class Conta {
 			 System.out.println("Não pode depositar valor negativo ou nulo!"); 
 		 }
 		 else{
-			 valor.multiply(categoriaDaConta.valorizacao(categoriaDaConta));
+			 if(categoriaDaConta.valorizacao(categoriaDaConta).compareTo(BigDecimal.ZERO) != 0){
+				 valor = valor.multiply(categoriaDaConta.valorizacao(categoriaDaConta));
+			 }
 			 saldo = saldo.add(valor);
 			 categoriaDaConta = categoriaDaConta.verificaCategoria(saldo,categoriaDaConta);
 		 }
 	 }
 	 public void retirada(BigDecimal valor) {
-		 if(valor.compareTo(BigDecimal.ZERO) == 0 || valor.compareTo(BigDecimal.ZERO) > 0 ){ //deposito zero ou negativo
+		 if(valor.compareTo(BigDecimal.ZERO) == 0 || valor.signum() == -1 ){ //deposito zero ou negativo
 			 System.out.println("Não pode retirar valor negativo ou nulo!"); 
 		 }
 		 else if(saldo.compareTo(valor) == -1){ //se o saldo for menor do que o valor a ser retirado
 			 System.out.println("Você não tem saldo suficiente para isso!");
 		 }
-		 else{
-			 saldo = saldo.subtract(valor);
-			 categoriaDaConta = categoriaDaConta.verificaCategoria(saldo,categoriaDaConta); //pode regredir de categoria
-		 }
+			 else{
+				 saldo = saldo.subtract(valor);
+				 categoriaDaConta = categoriaDaConta.verificaCategoria(saldo,categoriaDaConta); //pode regredir de categoria
+			 }
 	 }
 }

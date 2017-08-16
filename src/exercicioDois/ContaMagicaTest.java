@@ -40,7 +40,8 @@ public class ContaMagicaTest {
 		c1.deposito(new BigDecimal(10));
 		c1.deposito(new BigDecimal(10.8765));
 		c1.retirada((new BigDecimal(20)));
-		assertEquals(c1.getSaldo(), new BigDecimal(0.8765));
+		BigDecimal teste = new BigDecimal(0.8765).subtract(c1.getSaldo());
+		assertTrue(teste.compareTo(new BigDecimal(0.001)) == -1); //testa se o teste é menor do que 0,001
 	}
 	@Test
 	public void retiraNaoTendoOSaldo(){
@@ -99,7 +100,8 @@ public class ContaMagicaTest {
 		Conta c1 = new Conta("Usuário 01");
 		c1.deposito(new BigDecimal(50000));
 		c1.deposito(new BigDecimal(1000));
-		assertEquals(c1.getSaldo(), new BigDecimal(51010));
+		BigDecimal teste = new BigDecimal(51010).subtract(c1.getSaldo());
+		assertTrue(teste.compareTo(new BigDecimal(0.001)) == -1); //testa se o teste é menor do que 0,001
 	}
 	@Test
 	public void verificaValorizacaoSilver(){
@@ -113,7 +115,8 @@ public class ContaMagicaTest {
 		Conta c1 = new Conta("Usuário 01");
 		c1.deposito(new BigDecimal(200000));
 		c1.deposito(new BigDecimal(1000));
-		assertEquals(c1.getSaldo(), new BigDecimal(21025));
+		BigDecimal teste = new BigDecimal(21025).subtract(c1.getSaldo());
+		assertTrue(teste.compareTo(new BigDecimal(0.001)) == -1); //testa se o teste é menor do que 0,001
 	}
 
 }
